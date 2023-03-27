@@ -16,6 +16,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_btn_quit_clicked();
+
 private:
     Ui::MainWindow *ui;
     Page_login mPageLogin;

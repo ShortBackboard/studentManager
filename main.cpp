@@ -1,3 +1,8 @@
+/*
+ * 1.简单设计登录界面和主界面
+ *
+ * 2.数据库逻辑设计
+*/
 #include "mainwindow.h"
 
 #include <QApplication>
