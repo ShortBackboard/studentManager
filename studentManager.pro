@@ -1,4 +1,5 @@
 QT       += core gui
+QT += sql   #使用数据库
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,11 +12,19 @@ CONFIG += c++20
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    page_login.cpp
+    page_login.cpp \
+    student.cpp \
+    stusql.cpp \
+    user.cpp
+
 
 HEADERS += \
     mainwindow.h \
-    page_login.h
+    page_login.h \
+    student.h \
+    stusql.h \
+    user.h
+
 
 FORMS += \
     mainwindow.ui \

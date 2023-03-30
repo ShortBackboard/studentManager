@@ -1,0 +1,15 @@
+CREATE TABLE "student"(
+"id" integer NOT NULL PRIMARY KEY,
+"name" TEXT,
+"age" integer,
+"major" TEXT,
+"gender" TEXT,
+"phone" integer
+ );
+
+ 
+CREATE TABLE "users"(
+"username" TEXT,
+"password" TEXT,
+"rights" TEXT
+);
