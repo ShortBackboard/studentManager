@@ -1,5 +1,6 @@
 #include "page_login.h"
 #include "ui_page_login.h"
+#include <QFile>
 
 Page_login::Page_login(QWidget *parent) :
     QWidget(parent),
@@ -11,6 +12,24 @@ Page_login::Page_login(QWidget *parent) :
 Page_login::~Page_login()
 {
     delete ui;
+}
+
+void Page_login::keyPressEvent(QKeyEvent *event)
+{
+    //Fn + F5 刷新部件样式
+
+    if(event->key() == Qt::Key_F5){
+        QFile f;
+
+        f.setFileName("../studentManager/css/loginQss.css");
+        f.open(QIODevice::ReadOnly);
+
+        //读取css文件
+        QString strQss = f.readAll();
+        qDebug() << strQss;
+        setStyleSheet(strQss);
+
+    }
 }
 
 

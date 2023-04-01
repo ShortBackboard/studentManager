@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QFile>
+#include <QCoreApplication>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     //1.登录界面和主界面的切换
     //显示登录界面
     mPageLogin.show();
+    this->show();
 
 
     //登录成功进入主界面
@@ -49,6 +52,28 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    //Fn + F5 刷新部件样式
+
+    if(event->key() == Qt::Key_F5){
+        QFile f;
+
+        //获得的目录路径str是生成可执行文件所在目录
+        //auto str = QCoreApplication::applicationDirPath();
+
+        f.setFileName("../studentManager/css/mainQss.css");
+        f.open(QIODevice::ReadOnly);
+
+        //读取css文件
+        QString strQss = f.readAll();
+        qDebug() << strQss;
+        this->setStyleSheet(strQss);
+    }
+
 }
 
 

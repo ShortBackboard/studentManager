@@ -3,6 +3,8 @@
  *
  * 2.数据库逻辑设计
  *
+ * 3.界面美化
+ *
 */
 #include "mainwindow.h"
 

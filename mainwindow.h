@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QKeyEvent>
 #include "page_login.h"
 
 QT_BEGIN_NAMESPACE
@@ -15,6 +16,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    //按键刷新界面部件样式表
+    virtual void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void on_btn_quit_clicked();

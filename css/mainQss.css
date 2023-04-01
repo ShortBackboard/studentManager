@@ -1,0 +1,30 @@
+QLabel{color:white}
+
+QPushButton{font-size:18px;color:white;background-color:#398072}
+
+QPushButton:pressed{background-color:#1abc9c}
+
+QWidget#title{background-color:#344953}
+
+QWidget#tableWidget{border:1px solid gray;}
+
+QWidget#treeWidget{font-size:18px;}
+
+/*表格样式*/
+QHeaderView::section{
+    color:black;
+    font-size:14px;
+    font-weight:bold;
+    text-align:center;
+    height:30px;
+    color:#909399;
+    border:1px solid gray;
+    border-left:none;
+}
+
+QTableWidget::item{
+    font:14px "微软雅黑";
+    color:#677483;
+    bor
+}
+
