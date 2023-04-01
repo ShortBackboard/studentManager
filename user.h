@@ -7,6 +7,8 @@
 
 class User{
 public:
+    User();
+
     User(int userId,QString password,QString rights);
     int  m_userId;
     QString m_password;

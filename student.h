@@ -7,6 +7,8 @@
 
 class Student{
 public:
+    Student();
+
     Student(int stuId,QString name,quint16 age,QString major,
             QString gender,QString tel);
 

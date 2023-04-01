@@ -22,10 +22,10 @@ public:
     void initDatabase();
 
     //查询所有学生数量
-    int  getStuNums();
+    int getStuNums();
 
-    //查询第几页的学生数据
-    //第几页，每页显示多少数据
+
+    //把所有数据分成多少页，每页显示多少数据，页数从0开始数
     QList<Student> getPageStu(quint32 page, quint32 nums);
 
     //添加学生
@@ -37,23 +37,23 @@ public:
     //清空学生
     void clearStuTable();
 
-    //修改学生
-    void updateStu(Student s);
+    //修改学号为id的学生信息
+    void updateStu(Student s, int Id);
 
     //查询所有用户
     QList<User> getAllUsersInfo();
 
     //查询用户是否存在
-    bool isUserExist(QString userName);
+    bool isUserExist(int userId);
 
     //修改用户权限
-    void updateUserRights(QString userName,QString right);
+    void updateUserRights(int Id,QString right);
 
     //添加单个用户
     void addUser(User u);
 
     //删除单个用户
-    void delUser(QString userName);
+    void delUser(int id);
 
 private:
     QSqlDatabase m_db = QSqlDatabase::addDatabase("QSQLITE");
