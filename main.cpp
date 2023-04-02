@@ -5,7 +5,13 @@
  *
  * 3.界面美化
  *
+ * 4.模拟数据并显示到主窗口
+ *
+ *
+ *  最后整理文件headers/resources/..
 */
+
+
 #include "mainwindow.h"
 
 #include <QApplication>
@@ -19,9 +25,6 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     auto w = make_unique<MainWindow>();
-
-    stuSql stusql;
-
 
 
     return a.exec();

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QKeyEvent>
 #include "page_login.h"
+#include "stusql.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -23,8 +24,11 @@ public:
 private slots:
     void on_btn_quit_clicked();
 
+    void on_btu_simulation_clicked();
+
 private:
     Ui::MainWindow *ui;
     Page_login mPageLogin;
+    stuSql* m_ptrStuSql;
 };
 #endif // MAINWINDOW_H

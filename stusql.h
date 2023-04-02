@@ -15,8 +15,17 @@
 class stuSql : public QObject
 {
     Q_OBJECT
+
+public:
+    //使用单例模式
+    static stuSql* ptrStuSql;
+    static stuSql* getInstance();
+
+
 public:
     explicit stuSql(QObject *parent = nullptr);
+
+
 
     //初始化数据库
     void initDatabase();

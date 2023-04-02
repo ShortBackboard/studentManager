@@ -2,17 +2,19 @@
 #include "ui_mainwindow.h"
 #include <QFile>
 #include <QCoreApplication>
+#include <QRandomGenerator>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    ,m_ptrStuSql(nullptr)
 {
     ui->setupUi(this);
 
     //1.登录界面和主界面的切换
     //显示登录界面
     mPageLogin.show();
-    this->show();
+    //this->show();
 
 
     //登录成功进入主界面
@@ -45,6 +47,33 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->treeWidget->expandAll();
    // ui->stackedWidget->setCurrentIndex(0);//默认显示
+
+    m_ptrStuSql = stuSql::getInstance();
+
+    //获得所有学生信息,并显示在MainWindow
+    auto count =  m_ptrStuSql->getStuNums();
+    QList<Student> lStudents = m_ptrStuSql->getPageStu(0,count);
+
+    //ui->tableWidget->clear();
+
+    //1.初始化行数，为数据库中学生的数量
+    ui->tableWidget->setRowCount(count);
+
+
+    //2.显示数据中的学生信息
+    for(int i = 0; i < lStudents.size(); i++){
+        ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(lStudents[i].m_stuId)));
+        ui->tableWidget->setItem(i,1,new QTableWidgetItem(lStudents[i].m_name));
+        ui->tableWidget->setItem(i,2,new QTableWidgetItem(QTableWidgetItem(QString::number(lStudents[i].m_age))));
+        ui->tableWidget->setItem(i,3,new QTableWidgetItem(lStudents[i].m_major));
+        ui->tableWidget->setItem(i,4,new QTableWidgetItem(lStudents[i].m_gender));
+        ui->tableWidget->setItem(i,5,new QTableWidgetItem(lStudents[i].m_tel));
+    }
+
+
+    ui->lb_count->setText(QString("学生总数:%1").arg(count));
+
+
 
 
 }
@@ -81,4 +110,25 @@ void MainWindow::on_btn_quit_clicked()
 {
     exit(0);
 }
+
+
+void MainWindow::on_btu_simulation_clicked()
+{
+    //模拟制作学生数据
+    //随机生成年龄和电话
+    QRandomGenerator age;
+    age.seed(0);
+
+    for(int i = 0; i< 10; i++){
+        auto ranAge = age.bounded(18,25);//左闭右开
+        Student s(i+10,"Tom",ranAge,"C++","Man","133");
+        m_ptrStuSql->addStu(s);
+    }
+}
+
+
+
+
+
+
 

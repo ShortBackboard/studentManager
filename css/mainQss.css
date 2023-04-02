@@ -1,3 +1,7 @@
+/*
+ * 主页面样式
+ */
+
 QLabel{color:white}
 
 QPushButton{font-size:18px;color:white;background-color:#398072}
@@ -10,7 +14,7 @@ QWidget#tableWidget{border:1px solid gray;}
 
 QWidget#treeWidget{font-size:18px;}
 
-/*表格样式*/
+/*表格头样式*/
 QHeaderView::section{
     color:black;
     font-size:14px;
@@ -22,6 +26,7 @@ QHeaderView::section{
     border-left:none;
 }
 
+/*表格项样式*/
 QTableWidget::item{
     font:14px "微软雅黑";
     color:#677483;

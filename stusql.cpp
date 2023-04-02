@@ -7,13 +7,26 @@
 #include <QString>
 
 
+//初始化
+stuSql* stuSql::ptrStuSql = nullptr;
+
+stuSql *stuSql::getInstance()
+{
+    if(nullptr == ptrStuSql){//规范化
+        ptrStuSql = new stuSql;
+    }
+
+    return ptrStuSql;
+}
 
 stuSql::stuSql(QObject *parent)
     : QObject{parent}
 {
     initDatabase();
 
-    Student s1(1,"Tom",18,"SCI","Man","123");
+    //测试SQL语句
+
+    //Student s1(1,"Tom",18,"SCI","Man","123");
     //Student s2(2,"Tom",18,"SCI","Man","123");
     //Student s3(3,"Tom",18,"SCI","Man","123");
     //addStu(s1);
@@ -91,7 +104,7 @@ int  stuSql::getStuNums()
 }
 
 
-//把所有数据分成多少页，每页显示多少数据
+//把所有数据分成多少页，每页显示多少数据，页数从0开始数
 QList<Student> stuSql::getPageStu(quint32 page, quint32 nums)
 {
     QList<Student> l;
