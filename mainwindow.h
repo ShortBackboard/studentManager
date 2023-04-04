@@ -6,6 +6,9 @@
 #include "page_login.h"
 #include "stusql.h"
 
+#include "dlg_addstu.h"//添加学生信息对话框
+#include "dlg_updatestu.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -26,9 +29,29 @@ private slots:
 
     void on_btu_simulation_clicked();
 
+
+
+    void on_btn_add_clicked();
+
+
+    void on_btn_clear_clicked();
+
+
+    void on_btu_del_clicked();
+
+    void on_btu_update_clicked();
+
+    void on_btn_search_clicked();
+
+public:
+    //更新显示数据
+    void updateDisplay();
+
 private:
     Ui::MainWindow *ui;
     Page_login mPageLogin;
     stuSql* m_ptrStuSql;
+    Dlg_AddStu m_dialogAddStu;
+    Dlg_updateStu m_dialogUpdateStu;
 };
 #endif // MAINWINDOW_H

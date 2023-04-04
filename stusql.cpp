@@ -192,6 +192,31 @@ void stuSql::updateStu(Student s,int Id)
     if(q.exec(strSql))  qDebug() << "updateStu successfully";
 }
 
+QList<Student> stuSql::selectStu(int id)
+{
+    QList<Student> l;
+
+    QSqlQuery q("",m_db);
+    QString str = QString("select * from student where stuId = %1").arg(id);
+
+    q.exec(str);
+
+    while(q.next()){
+        int id = q.value(0).toUInt();
+        QString name = q.value(1).toString();
+        int age =  q.value(2).toUInt();
+        QString major = q.value(3).toString();
+        QString gender = q.value(4).toString();
+        QString tel = q.value(5).toString();
+
+        Student s(id,name,age,major,gender,tel);
+
+        l.push_back(s);
+    }
+
+    return l;
+}
+
 
 
 QList<User> stuSql::getAllUsersInfo()
@@ -207,7 +232,7 @@ QList<User> stuSql::getAllUsersInfo()
     while(q.next()){
         int Id = q.value(0).toUInt();
         QString password = q.value(1).toString();
-        QString right = q.value(5).toString();
+        QString right = q.value(2).toString();
         User u(Id,password,right);
 
         l.push_back(u);

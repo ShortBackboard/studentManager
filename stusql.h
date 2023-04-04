@@ -49,6 +49,9 @@ public:
     //修改学号为id的学生信息
     void updateStu(Student s, int Id);
 
+    //查找学号为id的学生
+    QList<Student> selectStu(int id);
+
     //查询所有用户
     QList<User> getAllUsersInfo();
 
@@ -64,7 +67,7 @@ public:
     //删除单个用户
     void delUser(int id);
 
-private:
+
     QSqlDatabase m_db = QSqlDatabase::addDatabase("QSQLITE");
 
 };

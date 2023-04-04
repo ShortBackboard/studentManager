@@ -176,7 +176,7 @@
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="1" column="5">
-         <widget class="QPushButton" name="pushButton_2">
+         <widget class="QPushButton" name="btn_search">
           <property name="text">
            <string>搜索</string>
           </property>
@@ -187,11 +187,6 @@
           <attribute name="verticalHeaderVisible">
            <bool>false</bool>
           </attribute>
-          <row>
-           <property name="text">
-            <string>1</string>
-           </property>
-          </row>
           <column>
            <property name="text">
             <string>学号</string>
@@ -222,40 +217,10 @@
             <string>电话号码</string>
            </property>
           </column>
-          <item row="0" column="0">
-           <property name="text">
-            <string>1</string>
-           </property>
-          </item>
-          <item row="0" column="1">
-           <property name="text">
-            <string>张三</string>
-           </property>
-          </item>
-          <item row="0" column="2">
-           <property name="text">
-            <string>17</string>
-           </property>
-          </item>
-          <item row="0" column="3">
-           <property name="text">
-            <string>软件工程</string>
-           </property>
-          </item>
-          <item row="0" column="4">
-           <property name="text">
-            <string>男</string>
-           </property>
-          </item>
-          <item row="0" column="5">
-           <property name="text">
-            <string>13187648731</string>
-           </property>
-          </item>
          </widget>
         </item>
         <item row="1" column="4">
-         <widget class="QLineEdit" name="lineEdit">
+         <widget class="QLineEdit" name="le_search">
           <property name="placeholderText">
            <string>请输入</string>
           </property>
@@ -269,21 +234,21 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="btn_add">
           <property name="text">
            <string>增加</string>
           </property>
          </widget>
         </item>
         <item row="1" column="3">
-         <widget class="QPushButton" name="pushButton_4">
+         <widget class="QPushButton" name="btu_del">
           <property name="text">
            <string>删除</string>
           </property>
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QPushButton" name="pushButton_3">
+         <widget class="QPushButton" name="btu_update">
           <property name="text">
            <string>修改</string>
           </property>
@@ -296,13 +261,20 @@
           </property>
          </widget>
         </item>
-        <item row="3" column="2">
+        <item row="3" column="3">
          <widget class="QLabel" name="lb_count">
           <property name="styleSheet">
            <string notr="true">color: rgb(255, 0, 0);</string>
           </property>
           <property name="text">
            <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QPushButton" name="btn_clear">
+          <property name="text">
+           <string>清空学生表</string>
           </property>
          </widget>
         </item>

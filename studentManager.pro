@@ -10,6 +10,8 @@ CONFIG += c++20
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dlg_addstu.cpp \
+    dlg_updatestu.cpp \
     main.cpp \
     mainwindow.cpp \
     page_login.cpp \
@@ -19,6 +21,8 @@ SOURCES += \
 
 
 HEADERS += \
+    dlg_addstu.h \
+    dlg_updatestu.h \
     mainwindow.h \
     page_login.h \
     student.h \
@@ -27,6 +31,8 @@ HEADERS += \
 
 
 FORMS += \
+    dlg_addstu.ui \
+    dlg_updatestu.ui \
     mainwindow.ui \
     page_login.ui
 
