@@ -80,7 +80,7 @@ void stuSql::initDatabase()
     //       "18,'软件工程','男','17388208702')");
 
     //q.exec("DROP TABLE IF EXISTS user");
-    q.exec("CREATE TABLE IF NOT EXISTS user (userId integer,"
+    q.exec("CREATE TABLE IF NOT EXISTS user (userId integer not null primary key,"
             "password text,"
             "rights text)");
 

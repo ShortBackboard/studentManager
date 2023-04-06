@@ -63,13 +63,16 @@ MainWindow::MainWindow(QWidget *parent)
     auto count =  m_ptrStuSql->getStuNums();
 
     QList<Student> lStudents = m_ptrStuSql->getPageStu(0,count);
+    QList<User> lUsers = m_ptrStuSql->getAllUsersInfo();
 
 
-    //1.初始化行数，为数据库中学生的数量
+    //1.初始化行数，为数据库中学生的数量或用户的数量
     ui->tableWidget->setRowCount(count);
+    ui->tableWidget_2->setRowCount(lUsers.size());
 
 
-    //2.显示数据中的学生信息
+
+    //2.1 显示数据中的学生信息
     for(int i = 0; i < lStudents.size(); i++){
         ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(lStudents[i].m_stuId)));
         ui->tableWidget->setItem(i,1,new QTableWidgetItem(lStudents[i].m_name));
@@ -81,11 +84,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->lb_count->setText(QString("学生总数:%1").arg(count));
 
-}
+    //2.1 显示数据中的用户信息
+    for(int i = 0; i<lUsers.size(); i++){
+        ui->tableWidget_2->setItem(i,0,new
+QTableWidgetItem(QString::number(lUsers[i].m_userId)));
+        ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(lUsers[i].m_password));
+        ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(lUsers[i].m_rights));
+    }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
+
 }
 
 
@@ -117,7 +124,7 @@ void MainWindow::on_btn_quit_clicked()
 }
 
 
-void MainWindow::updateDisplay()
+void MainWindow::updateDisplayStu()
 {
     //设置表格第一行的内容
     ui->tableWidget->setColumnCount(6);
@@ -172,7 +179,7 @@ void MainWindow::on_btu_simulation_clicked()
         m_ptrStuSql->addStu(s);
     }
 
-    updateDisplay();
+    updateDisplayStu();
 
 }
 
@@ -186,7 +193,7 @@ void MainWindow::on_btn_add_clicked()
 
 
     //添加数据以后重新更新数据
-    updateDisplay();
+    updateDisplayStu();
 }
 
 
@@ -200,7 +207,7 @@ void MainWindow::on_btn_clear_clicked()
     //清空数据
     ui->tableWidget->clear();
 
-    updateDisplay();
+    updateDisplayStu();
 }
 
 
@@ -216,7 +223,7 @@ void MainWindow::on_btu_del_clicked()
     if(i >= 0){
         int id = ui->tableWidget->item(i,0)->text().toUInt();
         m_ptrStuSql->delStu(id);
-        updateDisplay();
+        updateDisplayStu();
         QMessageBox::information(nullptr,"信息","数据删除成功");
     }
 }
@@ -228,7 +235,7 @@ void MainWindow::on_btu_update_clicked()
     m_dialogUpdateStu.exec();
 
     //修改数据以后重新更新数据
-    updateDisplay();
+    updateDisplayStu();
 
 }
 
@@ -291,7 +298,7 @@ void MainWindow::on_btn_search_clicked()
 
 
 
-//控制切換StackWidget
+//切换控制StackWidget
 void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
 {
     if(item->text(column)=="学生管理"){
@@ -302,4 +309,11 @@ void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
         ui->stackedWidget->setCurrentWidget(ui->userPage);
     }
 }
+
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
 

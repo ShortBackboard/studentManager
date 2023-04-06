@@ -45,6 +45,21 @@
     <property name="spacing">
      <number>0</number>
     </property>
+    <item row="1" column="0">
+     <widget class="QTreeWidget" name="treeWidget">
+      <property name="maximumSize">
+       <size>
+        <width>180</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <column>
+       <property name="text">
+        <string notr="true">1</string>
+       </property>
+      </column>
+     </widget>
+    </item>
     <item row="0" column="0" colspan="2">
      <widget class="QWidget" name="title" native="true">
       <property name="styleSheet">
@@ -145,21 +160,6 @@
         </widget>
        </item>
       </layout>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QTreeWidget" name="treeWidget">
-      <property name="maximumSize">
-       <size>
-        <width>180</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <column>
-       <property name="text">
-        <string notr="true">1</string>
-       </property>
-      </column>
      </widget>
     </item>
     <item row="1" column="1">
@@ -281,18 +281,91 @@
        </layout>
       </widget>
       <widget class="QWidget" name="userPage">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QWidget" name="widget" native="true">
         <property name="geometry">
          <rect>
           <x>60</x>
-          <y>60</y>
-          <width>107</width>
-          <height>29</height>
+          <y>0</y>
+          <width>601</width>
+          <height>51</height>
          </rect>
         </property>
-        <property name="text">
-         <string>增加</string>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="2">
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>删除</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>修改</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>增加</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>315</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QTableWidget" name="tableWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>50</y>
+          <width>390</width>
+          <height>391</height>
+         </rect>
         </property>
+        <property name="minimumSize">
+         <size>
+          <width>385</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>385</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>账户</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>密码</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>权限</string>
+         </property>
+        </column>
        </widget>
       </widget>
      </widget>

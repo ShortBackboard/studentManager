@@ -47,7 +47,9 @@ private slots:
 
 public:
     //更新显示数据
-    void updateDisplay();
+    void updateDisplayStu();
+
+    void updateDisplayUser();
 
 private:
     Ui::MainWindow *ui;
