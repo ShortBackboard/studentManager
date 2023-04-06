@@ -9,6 +9,9 @@
 #include "dlg_addstu.h"//添加学生信息对话框
 #include "dlg_updatestu.h"
 
+#include <QDebug>
+#include <QTreeWidgetItem>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -29,19 +32,18 @@ private slots:
 
     void on_btu_simulation_clicked();
 
-
-
     void on_btn_add_clicked();
 
-
     void on_btn_clear_clicked();
-
 
     void on_btu_del_clicked();
 
     void on_btu_update_clicked();
 
     void on_btn_search_clicked();
+
+    //QTreeWidget与QStackedWidget的关联操作
+    void on_treeWidget_itemClicked(QTreeWidgetItem *item, int column);
 
 public:
     //更新显示数据

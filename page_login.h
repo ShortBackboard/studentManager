@@ -1,8 +1,12 @@
 #ifndef PAGE_LOGIN_H
 #define PAGE_LOGIN_H
 
+#include <QList>
+#include <QListIterator>
 #include <QWidget>
 #include <QKeyEvent>
+#include "stusql.h"
+#include <QMessageBox>
 
 namespace Ui {
 class Page_login;
@@ -30,6 +34,7 @@ signals:
 
 private:
     Ui::Page_login *ui;
+    stuSql* m_ptrStuSql;
 };
 
 #endif // PAGE_LOGIN_H

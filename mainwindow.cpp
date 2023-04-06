@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->treeWidget->setColumnCount(1);
     ui->treeWidget->setHeaderHidden(true);
 
+
     QStringList l;
     l<<"学生信息管理系统";
 
@@ -43,6 +44,8 @@ MainWindow::MainWindow(QWidget *parent)
     l.clear();
     l<<"管理员管理";
     QTreeWidgetItem *p1 = new QTreeWidgetItem(p,l);
+
+
 
     l.clear();
     l<<"学生管理";
@@ -283,5 +286,20 @@ void MainWindow::on_btn_search_clicked()
         QMessageBox::information(nullptr,"信息","该学生不存在");
     }
 
+}
+
+
+
+
+//控制切換StackWidget
+void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
+{
+    if(item->text(column)=="学生管理"){
+        ui->stackedWidget->setCurrentWidget(ui->stuPage);
+    }
+
+    if(item->text(column)=="管理员管理"){
+        ui->stackedWidget->setCurrentWidget(ui->userPage);
+    }
 }
 

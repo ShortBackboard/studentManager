@@ -7,6 +7,7 @@ Page_login::Page_login(QWidget *parent) :
     ui(new Ui::Page_login)
 {
     ui->setupUi(this);
+    m_ptrStuSql = stuSql::getInstance();
 }
 
 Page_login::~Page_login()
@@ -37,14 +38,23 @@ void Page_login::keyPressEvent(QKeyEvent *event)
 
 void Page_login::on_btn_login_clicked()
 {
+    int curId = ui->le_username->text().toUInt();
+    QString curPass = ui->le_password->text();
+
     //数据库查找用户名和密码
+    QList<User> l = m_ptrStuSql->getAllUsersInfo();
 
-    //失败就提示
+    int flag = 1;
+    for(int i = 0; i < l.size(); i++){
+        if( curId == l[i].m_userId && l[i].m_password == curPass){
+            //成功就发送信号,进入到主窗口界面
+            flag = 0;
+            emit sendLoginSuccess();
+        }
+    }
 
-    //成功就进入主页面
+    if(flag ==1) QMessageBox::information(nullptr,"信息","账号密码错误");
 
-    //发送信号
-    emit sendLoginSuccess();
 }
 
 

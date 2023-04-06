@@ -85,7 +85,8 @@ void stuSql::initDatabase()
             "rights text)");
 
 
-    //q.exec("INSERT INTO user VALUES(1,'a','a')");
+    //登录账号和密码
+    q.exec("INSERT INTO user VALUES(123,'123','manager')");
 }
 
 

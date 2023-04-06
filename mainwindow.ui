@@ -50,7 +50,7 @@
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,1,1">
+      <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,0,0">
        <item row="0" column="0">
         <spacer name="horizontalSpacer">
          <property name="orientation">
@@ -63,24 +63,6 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLabel" name="label">
-         <property name="font">
-          <font>
-           <pointsize>14</pointsize>
-          </font>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>学生信息管理系统</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
        </item>
        <item row="0" column="2">
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -144,6 +126,24 @@
          </item>
         </layout>
        </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <pointsize>14</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>学生信息管理系统</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
       </layout>
      </widget>
     </item>
@@ -173,7 +173,7 @@
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <widget class="QWidget" name="page">
+      <widget class="QWidget" name="stuPage">
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="1" column="5">
          <widget class="QPushButton" name="btn_search">
@@ -280,7 +280,21 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2"/>
+      <widget class="QWidget" name="userPage">
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>60</y>
+          <width>107</width>
+          <height>29</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>增加</string>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
    </layout>
